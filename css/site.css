@@ -1,0 +1,56 @@
+body {
+    background: #2196F3;
+}
+
+table {
+    width: 100%;
+    background: #fff;
+}
+
+table tr th,
+table tr td {
+    border-bottom: 1px solid #dedede;
+    padding: 8px;
+    text-align: center;
+}
+
+.gary {
+    color: gray;
+}
+
+.account-info {
+    font-size: 22px;
+    color: #2196F3;
+    font-weight: 700;
+}
+
+.cash {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.no-change {
+    color: gray;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.positive {
+    color: green;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.negative {
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.load-more {
+    font-size: 20px;
+    color: #2196F3;
+    font-weight: 700;
+    text-decoration: none;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets</title>
+    <link rel="stylesheet" href="../css/site.css">
+
+</head>
+
+<body ng-controller="AccountsCtrl as vm">
+
+    <section>
+        <table cellspacing=0>
+            <thead>
+                <tr>
+                    <th ng-click="vm.sortAccounts('account')">
+                        <span>Account</span>
+                        <span ng-show="vm.sortAccount==true">&#x2C5;</span>
+                        <span ng-hide="vm.sortAccount==true || vm.sortAccount == undefined">&#x2C4;</span>
+                    </th>
+                    <th ng-click="vm.sortAccounts('cash')">
+                        <span>Available Cash</span>
+                        <span ng-show="vm.sortCash==true">&#x2C5;</span>
+                        <span ng-hide="vm.sortCash==true || vm.sortCash == undefined">&#x2C4;</span>
+                        <br>
+                        <span class="gary">Today's Change</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="account in vm.accounts | limitTo: vm.limit track by $index">
+                    <td>
+                        <div class="account-info">
+                            <span>{{account.accountType}}</span>
+                            <span> - </span>
+                            <span>{{account.accountNumber}}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div class="cash">{{account.totalCash | currency}}</div>
+                            <div ng-class="vm.getColorClass(account.todaysChange)">
+                                <span> <span>{{vm.addSymbol(account.todaysChange)}}</span> {{account.todaysChange}}</span>
+                                <span> / </span>
+                                <span>{{account.todaysChangeInVal | currency}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a class="load-more" href="#" ng-click="vm.loadMore()"> Load more</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/main-service.js"></script>
+</body>
+
+</html>
